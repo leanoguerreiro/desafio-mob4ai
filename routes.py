@@ -19,11 +19,10 @@ process_router = APIRouter(prefix="/process", tags=["process"])
 @process_router.get("/processes", response_model=list[ProcessSchema])
 async def get_processes(db: Session = Depends(get_db)):
     
-    results = (
-        db.query(Processes1, Processes2, Processes3)
-        .join(Table2, process)
-    )
-    processes = db.query(Processes1).all()
+    processes1 = db.query(Processes1).all()
+    processes2 = db.query(Processes2).all()
+    processes3 = db.query(Processes3).all()
+    processes = processes1 + processes2 + processes3
     return [
         {
             "PackageName": process.PackageName,
