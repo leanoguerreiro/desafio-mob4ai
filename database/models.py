@@ -26,5 +26,44 @@ class Processes1(Base):
         self.Metrics = metrics
         self.Bytesize = bytesize
         self.Pids = pids
+
+class Processes2(Base):
+
+    __tablename__ = 'processes2'
+    PackageName = Column(String, primary_key=True, index=True)
+    Uid = Column(Integer, index=True)
+    Pids = Column(String, index=True)
+    Metrics = Column(String)
+    Bytesize = Column(String)
+
+
+    def __init__(self, package_name, uid, metrics, parameters, bytesize, pids):
+        super().__init__()
+        self.PackageName = package_name
+        self.Uid = uid
+        self.Metrics = metrics
+        self.Bytesize = bytesize
+        self.Pids = pids
+
+
+
+class Processes3(Base):
+
+    __tablename__ = 'processes3'
+    PackageName = Column(String, primary_key=True, index=True)
+    Uid = Column(Integer, index=True)
+    Pids = Column(String, index=True)
+    Metrics = Column(String)
+    Bytesize = Column(String)
+
+
+    def __init__(self, package_name, uid, metrics, parameters, bytesize, pids):
+        super().__init__()
+        self.PackageName = package_name
+        self.Uid = uid
+        self.Metrics = metrics
+        self.Bytesize = bytesize
+        self.Pids = pids
         
+ 
  
