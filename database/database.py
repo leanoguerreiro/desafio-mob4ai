@@ -4,8 +4,7 @@ from sqlalchemy import create_engine
 DATABASE_URL = "sqlite:///./database/live.sqlite"
 
 engine = create_engine(
-    DATABASE_URL, 
-    check_same_thread=False
+    DATABASE_URL
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) 
