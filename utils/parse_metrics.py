@@ -7,6 +7,12 @@ def parse_metrics(metrics: str):
         'rx_data',
         'tx_data'
     ]
-    values = metrics.split(':')
-    parsed = {keys[i]: float(values[i]) if "." in values[i] else int(values[i]) for i in range(len(keys))}
-    return parsed
+    values = metrics.strip(';').split(':')
+    try:
+        parsed = {
+            keys[i]: float(values[i]) if "." in values[i] else int(values[i]) 
+            for i in range(len(keys))
+        }
+        return parsed
+    except(ValueError, KeyError):
+        return {}
